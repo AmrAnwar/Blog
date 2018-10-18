@@ -1,0 +1,4 @@
+venv/
+*.pyc
+static_cdn
+db.sqlite3

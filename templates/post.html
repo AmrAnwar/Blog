@@ -1,0 +1,78 @@
+{% extends "index.html" %}
+{% block header %}
+
+    {{ block.super }}
+
+
+{% endblock %}
+{% block title %}
+    {{ post.title }}|{{ block.super }}
+{% endblock %}
+{% block content %}
+
+    <!-- Page Header -->
+    <!-- Set your background image for this header on the line below. -->
+    <header class="intro-header" style="background-image: url('http://amranwar00.pythonanywhere.com/{{ post.image.url }}')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="post-heading" style="color: {{ post.color }}">
+                        <h1>{{ post.title }}</h1>
+                        <h2 class="subheading">{{ post.content|striptags|truncatechars:40 }}</h2>
+                        <span class="meta">Posted by <a
+                                href="{% url 'about' %}">{{ post.user }}</a> {{ post.timestamp }}</span>
+
+                        <span>
+<div class="fb-share-button" data-href="{{ request.build_absolute_uri }}" data-layout="button"data-mobile-iframe="true">
+
+  </div>
+
+
+                    <!--                                                <div class="fb-share-button" data-href="{{ request.build_absolute_uri }}" data-layout="button"-->
+                    <!-- ><a class="fb-xfbml-parse-ignore" target="_blank"-->
+                    <!--                                                    href="https://www.facebook.com/sharer/sharer.php?u=http%3A%2F%2F127.0.0.1%3A8000%2Fposts%2Ftest%2F&amp;src=sdkpreparse">Share</a>-->
+                    <!--</div>-->
+
+                            <div>
+                                                                                <a href="https://twitter.com/home?status={{ post.content|truncatechars:80 }}%20{{ request.build_absolute_uri }}"
+                       class="twitter-share-button"  data-show-count="false">Tweet</a>
+
+
+                            </div>
+
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Post Content -->
+    <article>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+
+  <img src="{{ post.image.url }}" style="display:none" >
+  <p style="display:none">{{ post.content|striptags|truncatechars:200 }}</p>
+  {{ post.content|safe }}
+                                    <br>
+                <hr>
+
+                                    <div class="fb-comments" data-href="{{ request.build_absolute_uri }}" data-numposts="3"></div>
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+        </div>
+    </article>
+
+
+    <hr>
+{% endblock %}

@@ -1,0 +1,9 @@
+Django==1.11.15
+django-colorfield==0.1.14
+django-crispy-forms==1.6.0
+django-markdown==0.8.4
+django-markdown-deux==1.0.5
+olefile==0.44
+Pillow==4.2.1
+pytz==2017.2
+whitenoise==3.3.0

@@ -1,0 +1,64 @@
+{% extends "index.html" %}
+{% block title %}
+    about me |{{ block.super }}
+{% endblock %}
+{% block content %}
+    <header class="intro-header" style="background-image: url('media/img/testabout.png')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1>About Me</h1>
+                        <hr class="small">
+                        <span class="subheading">This is what I do.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                <div class="col-sm-7">
+                    <ul>
+                        <li>
+                            <p>I am Amr Anwar -- a student at computer system department in faculty of Engineering
+                                Mansoura
+                                university,Interested in all the areas of programming especiallly web backend
+                                development</p>
+                        </li>
+                        <li>
+                            <p>I can develop Website using Python Frameworks like Django</p>
+
+                        </li>
+
+
+                </div>
+                <div class="col-sm-5">
+                    <p><img class="img-responsive" src="{{ '/media/img/me.jpg' }}" alt="Chania">
+                    </p>
+                </div>
+                <div class="col-sm-11 col-sm-offset-1">
+                    <li>
+                        <p>Apart from technology,I am interested in everything related to Japan like light Novels and
+                            Manges
+                        </p>
+
+                    </li>
+                    <li>
+                        <p><em>Want to work together? </em> <a href="mailto:amranwar945@gmail.com"> I’d love to hear
+                            from you. </a>
+
+                    </li>
+                    </p>
+                </div>
+
+                </ul>
+
+            </div>
+        </div>
+    </div>
+
+    <hr>
+{% endblock %}

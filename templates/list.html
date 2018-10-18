@@ -1,0 +1,69 @@
+{% extends "index.html" %}
+            {% block title %}
+                Posts List
+            {% endblock %}
+{% block content %}
+        <header class="intro-header" style="background-image: url('http://amranwar00.pythonanywhere.com/media/img/bluesky.jpg')">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                    <div class="page-heading">
+                        <h1>Posts List</h1>
+                        <hr class="small">
+                        <span class="subheading">Hope You Find What you want.</span>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-8 col-lg-offset-2 col-md-10 col-md-offset-1">
+                {% for post in contacts %}
+                    <div class="post-preview">
+
+                        <a href="{{ post.get_absolute_url }}">
+                            <h2 class="post-title">
+                                {{ post.title }}
+                            </h2>
+                            <h3 class="post-subtitle">
+                                {{ post.content|striptags|truncatechars:40 }}
+                            </h3>
+                        </a>
+                        <p class="post-meta">Posted by {{ post.user }} {{ post.timestamp|timesince }}</p>
+                    </div>
+                    <hr>
+
+                {% endfor %}
+
+            {% if contacts.has_other_pages %}
+  <ul class="pagination">
+    {% if contacts.has_previous %}
+      <li><a href="?page={{ contacts.previous_page_number }}">&laquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&laquo;</span></li>
+    {% endif %}
+    {% for i in contacts.paginator.page_range %}
+      {% if contacts.number == i %}
+        <li class="active"><span>{{ i }} <span class="sr-only">(current)</span></span></li>
+      {% else %}
+        <li><a href="?page={{ i }}">{{ i }}</a></li>
+      {% endif %}
+    {% endfor %}
+    {% if contacts.has_next %}
+      <li><a href="?page={{ contacts.next_page_number }}">&raquo;</a></li>
+    {% else %}
+      <li class="disabled"><span>&raquo;</span></li>
+    {% endif %}
+  </ul>
+{% endif %}
+
+            </div>
+
+
+        </div>
+    </div>
+
+{% endblock %}
